@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::get('/test', function () {
+    return response()->json(['message' => 'Hello, this is an API!']);
 });
+
+// Route::get('/user/{id}', function ($id) {
+//     return response()->json(['user_id' => $id]);
+// });
