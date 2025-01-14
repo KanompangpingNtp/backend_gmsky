@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShowMenuApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test', function () {
     return response()->json(['message' => 'Hello, this is an API!']);
 });
+
+Route::get('/show-menu', [ShowMenuApiController::class, 'showMenuAPI']);
 
 // Route::get('/user/{id}', function ($id) {
 //     return response()->json(['user_id' => $id]);

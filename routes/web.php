@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ManageSystemController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('admin.layout.layout');
+// });
+
+//สร้างเมนู
+Route::get('/PagesManageSystem', [ManageSystemController::class, 'PagesManageSystem'])->name('PagesManageSystem');
+Route::post('/PagesManageSystem/CreateNewSystem', [ManageSystemController::class, 'CreateNewSystem'])->name('CreateNewSystem');
+Route::get('/PagesManageSystemMenu', [ManageSystemController::class, 'PagesManageSystemMenu'])->name('PagesManageSystemMenu');
+Route::get('/PagesManageSystemMenu/ManageSystemMenuDetails/{id}', [ManageSystemController::class, 'ManageSystemMenuDetails'])->name('ManageSystemMenuDetails');
+Route::post('/CreateNewSystemMenuDetails/{id}', [ManageSystemController::class, 'CreateNewSystemMenuDetails'])->name('CreateNewSystemMenuDetails');
+
+//adminDashbord
+Route::get('/WelcomeAdmin', [AdminController::class, 'WelcomeAdmin'])->name('WelcomeAdmin');
+
+
